@@ -1,0 +1,32 @@
+function histarray=imhist_gray(I);
+I=imread('ruf5.jpg');
+a=size(I);
+if (numel(a)==3)
+    I=rgb2gray(I);
+end
+imtool(I)
+a=size(I);
+G_hist=zeros(256,1);
+t=0:255;
+for i=1:a(1)
+    for j=1:a(2)
+        G_hist(I(i,j)+1)=G_hist(I(i,j)+1)+1;
+    end
+end
+loc_max=zeros(256,1);
+for i=1:255
+    %     if(G_hist(i)>G_hist(i-1) && G_hist(i)>G_hist(i+1))
+    %         loc_max(i)=1;
+    %     end
+    for loc_arg=-5:5
+        if(i+loc_arg >0 && i+loc_arg < 257)
+            if(flag == 0)
+                if(G_hist(i) < G_hist(i+loc_arg))
+                    flag = 1;
+                end
+                    sum_max=sum(loc_max);
+                    maxghist=max(G_hist);
+                    G_hist=G_hist/(maxghist);
+                    plot(t,G_hist,'g');
+                    grid on
+                    histarray=sum_max;

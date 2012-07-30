@@ -1,0 +1,8 @@
+for j=1:100;
+    for i=1:100;
+        d(i,j)=50;
+        d(i,j)=50;
+        d(i,j)=128;
+    end
+end
+imtool(d)

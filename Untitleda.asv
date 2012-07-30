@@ -1,0 +1,3 @@
+sphere
+set(gca,'CameraViewAngle',get(gca,'CameraViewAngle'))
+set(gca,'CameraViewAngle',get(gca,'CameraViewAngle')+5)
